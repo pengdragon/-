@@ -8,7 +8,6 @@ const express = require('express')
 //结构赋值引入两个方法
 const { Random, mock } = require('mockjs')
 const server = express();
-console.log(Random)
 server.get('/api/getlocation', (req, res) => {
     let result = mock({
         status: 0,
@@ -73,7 +72,7 @@ server.get('/api/film/nowplaying/list', (req, res) => {
     res.json(result);
 })
 
-server.listen(9090, '10.36.141.108', (err) => {
+server.listen(9090, 'localhost', (err) => {
     if (err) {
         console.log('后台服务器启动失败');
     }
