@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Router-view/>
     <tab-bar>
       <tab-item :info="{title:'植物多',path:'/plant'}"></tab-item>
       <tab-item :info="{title:'社区',path:'/community'}"></tab-item>
