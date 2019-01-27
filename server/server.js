@@ -1,13 +1,6 @@
 const express = require('express')
-//一如mockjs模块
-//const Mock = require('mockjs');
-//引入Random方法
-//const Random = Mock.Random;
-//引入mock方法
-//const mock = Mock.mock;
-//结构赋值引入两个方法
-/*后台的假数据下面有三个案例，并且都写了注释，研究一哈根据需求进行获取 */
 const { Random, mock } = require('mockjs')
+const API = require('./api')
 const server = express();
 server.get('/api/getlocation', (req, res) => {
     let result = mock({
@@ -50,7 +43,7 @@ server.get('/api/home/filmbanner', (req, res) => {
     res.json(result);
 })
 
-server.get('/api/film/nowplaying/list', (req, res) => {
+server.get(API.TEST, (req, res) => {
     let result = mock({
         status: 0,
         message: 'ok',
@@ -80,6 +73,17 @@ server.get('/api/film/nowplaying/list', (req, res) => {
     });
     res.json(result);
 })
+/*匹配路由区域 */
+
+
+
+
+
+
+
+
+
+
 
 server.listen(9090, 'localhost', (err) => {
     if (err) {
