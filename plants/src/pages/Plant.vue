@@ -2,15 +2,13 @@
   <div id="plant" class="page">
     <h1>植物多</h1>
     <scroller :top="44" :bottom="49">
-      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-        <p>刷新次数:{{count}}</p>
+    
         <ul>
           <li v-for="(item,index) in data" :key="index">
             <img v-lazy="item.img" alt>
             <span>{{item.name}}</span>
           </li>
-        </ul>
-      </van-pull-refresh>
+        </ul> 
     </scroller>
   </div>
 </template>

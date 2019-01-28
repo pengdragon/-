@@ -5,8 +5,10 @@ import 'vant/lib/index.css';
 import { FetchGet } from './fetch'
 import { FetchPost } from './fetch'
 import { PullRefresh, Lazyload, Swipe, SwipeItem, Icon } from "vant";
+import { Popup } from 'mint-ui';
 export default {
     install(Vue) {
+        Vue.component(Popup.name, Popup);
         Vue.component(Tabs.name, Tabs);
         Vue.component(Tab.name, Tab);
         Vue.component(Scroller.name, Scroller);
@@ -14,10 +16,11 @@ export default {
         Vue.prototype.FetchGet = FetchGet;
         Vue.prototype.FetchPost = FetchPost;
         //将vant中字体图标方法添加到全局
-        Vue.prototype.Icon = Icon;
+        // Vue.prototype.Icon = Icon;
         Vue.use(PullRefresh);
         Vue.use(Lazyload)
         Vue.use(Swipe)
         Vue.use(SwipeItem)
+        Vue.use(Icon)
     }
 }

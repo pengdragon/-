@@ -1,5 +1,6 @@
 const TEST = '/api/film/nowplaying/list'
-
+const USER_ACTIVITY = '/api/community/userActivity'
 export default {
-    TEST
+    TEST,
+    USER_ACTIVITY
 }

@@ -74,7 +74,26 @@ server.get(API.TEST, (req, res) => {
     res.json(result);
 })
 /*匹配路由区域 */
-
+server.get(API.USER_ACTIVITY, (req, res) => {
+    console.log('得到userActivity请求')
+    let result = mock({
+        status: 0,
+        message: 'ok',
+        data: {
+            'userActivity|20': [
+                {
+                    'id|+1': 1456,
+                    name: '@ctitle',
+                    'avtor': "@image('80x120','@color')",
+                    'img1': "@image('170x150','@color')",
+                    'img2': "@image('170x150','@color')",
+                    dec: Random.cparagraph(2),
+                }
+            ]
+        }
+    })
+    res.json(result)
+})
 
 
 

@@ -1,0 +1,120 @@
+/* 四个边框全有 */
+.border {
+position: relative;
+}
+
+.border::after {
+content: '';
+display: block;
+width: 100%;
+height: 1px;
+border-bottom: 1px solid #000;
+transform: scaleY(0.5);
+position: absolute;
+left: 0;
+bottom: -1px;
+}
+
+.border::before {
+content: '';
+display: block;
+width: 100%;
+height: 1px;
+border-top: 1px solid #000;
+transform: scaleY(0.5);
+position: absolute;
+left: 0;
+top: -1px;
+}
+
+.border .border-left {
+content: '';
+display: block;
+height: 100%;
+width: 1px;
+border-left: 1px solid #000;
+transform: scaleX(0.5);
+position: absolute;
+left: -1px;
+top: 0;
+}
+
+.border .border-right {
+content: '';
+display: block;
+height: 100%;
+width: 1px;
+border-right: 1px solid #000;
+transform: scaleX(0.5);
+position: absolute;
+right: -1px;
+top: 0;
+}
+
+/* 只有上边框 */
+.border-top {
+position: relative;
+}
+
+.border-top:before {
+content: '';
+display: block;
+width: 100%;
+height: 1px;
+border-top: 1px solid #000;
+transform: scaleY(0.5);
+position: absolute;
+left: 0;
+top: -1px;
+}
+
+/* 只有下边框 */
+.border-bottom {
+position: relative;
+}
+
+.border-bottom::after {
+content: '';
+display: block;
+width: 100%;
+height: 1px;
+border-bottom: 1px solid #000;
+transform: scaleY(0.5);
+position: absolute;
+left: 0;
+bottom: 0px;
+}
+
+/* 只有做边框 */
+.border-left {
+position: relative;
+}
+
+.border-left .border-left {
+content: '';
+display: block;
+height: 100%;
+width: 1px;
+border-left: 1px solid #000;
+transform: scaleX(0.5);
+position: absolute;
+left: -1px;
+top: 0;
+}
+
+/* 只有右边框 */
+.border-right {
+position: relative;
+}
+
+.border-right .border-right {
+content: '';
+display: block;
+height: 100%;
+width: 1px;
+border-right: 1px solid #000;
+transform: scaleX(0.5);
+position: absolute;
+right: -1px;
+top: 0;
+}
