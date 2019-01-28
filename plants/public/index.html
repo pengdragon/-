@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>plants</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but plants doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>plants</title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but plants doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+<script>
+  function resizeFontsize() {
+    var width = document.documentElement.clientWidth;
+    //750width基准值为100，其他的width根据750的基准值来求
+    //如375的width 基准值就是100*375/750
+    var rem = 100 * width / 750;
+    document.querySelector('html').style.fontSize = rem + 'px'
+  }
+  resizeFontsize();
+  window.addEventListener('orientationchange', resizeFontsize);
+  window.addEventListener('resize', resizeFontsize);
+
+</script>
+
 </html>
