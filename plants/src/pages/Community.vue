@@ -1,11 +1,12 @@
 <template>
   <div id="community" class="page">
+    <Router-view/>
     <header class="header">
       <div class="left">
         <van-icon name="search"/>
         <input type="text" placeholder="搜索圈友植物">
       </div>
-      <div class="right">
+      <div @click="btnMessageAction" class="right">
         <van-icon name="chat-o"/>
         <span>消息</span>
       </div>
@@ -27,11 +28,37 @@
         </div>
         <div class="function border-bottom">
           <i @click="btnLiveAction" class="pl aixin" :style=" styleLive"></i>
-          <i class="pl pinglun1"></i>
+          <i @click="btnCommentAction(item)" class="pl pinglun1"></i>
           <i @click="btnShareAction(item,index)" class="pl fenxiang"></i>
         </div>
       </div>
     </scroller>
+    <van-popup v-model="popupVisible" position="bottom" :overlay="false">
+      <div @click="btnClosrAction" class="popup-content">
+        <div class="popup-top">
+          <i class="pl iconfontzhizuobiaozhunbduan32"></i>
+          <span>微信好友</span>
+        </div>
+        <div class="popup-top">
+          <i class="pl pengyouquan"></i>
+          <span>朋友圈</span>
+        </div>
+        <div class="popup-top">
+          <i class="pl fenxiangqqhaoyou"></i>
+          <span>QQ好友</span>
+        </div>
+        <div class="popup-bottom">
+          <i class="pl qqkongjian"></i>
+          <span>QQ空间</span>
+        </div>
+        <div class="popup-bottom">
+          <i class="pl fuzhilianjie"></i>
+          <span>复制链接</span>
+        </div>
+      </div>
+      <!-- <div style="height:100px;
+      background:red"></div>-->
+    </van-popup>
   </div>
 </template>
 
@@ -48,6 +75,7 @@ export default {
     };
   },
   methods: {
+    //点赞按钮
     btnLiveAction() {
       this.isSelector = !this.isSelector;
       if (this.isSelector) {
@@ -56,13 +84,25 @@ export default {
         this.styleLive.color = "";
       }
     },
+    //分享按钮
     btnShareAction() {
-      console.log("弹框");
-      this.popupVisible = true;
+      if (!this.popupVisible) {
+        console.log("弹框");
+        this.popupVisible = true;
+      }
     },
     btnClosrAction() {
-      closeOnClickModal();
+      console.log(6666);
       this.popupVisible = false;
+    },
+    //评论 切换组件
+    btnCommentAction(item) {
+      this.$store.commit("community/setComment", item);
+      this.$router.push("/community/comment");
+    },
+    //切换到消息组件
+    btnMessageAction() {
+      this.$router.push("/community/message");
     }
   },
   computed: {
@@ -78,6 +118,49 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.van-popup {
+  .popup-content {
+    box-sizing: border-box;
+    padding-top: 0.6rem;
+    display: flex;
+    height: 3rem;
+    flex-wrap: wrap;
+    i::before {
+      font-size: 0.32rem !important;
+    }
+    span {
+      font-size: 0.32rem;
+    }
+    div:nth-child(1) i::before {
+      color: rgb(146, 198, 94);
+    }
+    div:nth-child(2) i::before {
+      color: rgb(81, 216, 184);
+    }
+    div:nth-child(3) i::before {
+      color: rgb(129, 129, 228);
+    }
+    div:nth-child(4) i::before {
+      color: rgb(233, 233, 139);
+    }
+    div:nth-child(5) i::before {
+      color: rgb(102, 102, 216);
+    }
+    .popup-top {
+      flex-direction: column;
+      width: 33.33%;
+      display: flex;
+      // justify-content: flex-end;
+      align-items: center;
+    }
+    .popup-bottom {
+      flex-direction: column;
+      width: 40%;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
 #community {
   .v-modal {
     width: 100px;

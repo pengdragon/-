@@ -2,7 +2,8 @@ import API from '../api'
 import { FetchGet } from '../common/fetch'
 const state = {
     list: [],
-    userActivity: []
+    userActivity: [],
+    comment: {}
 }
 const mutations = {
     setTest(state, param) {
@@ -10,6 +11,9 @@ const mutations = {
     },
     setCommunityUserActivity(state, param) {
         state.userActivity = param;
+    },
+    setComment(state, param) {
+        state.comment = param;
     }
 }
 async function getTest(store) {
@@ -23,6 +27,7 @@ async function getCommunityUserActivity(store) {
     store.commit('setCommunityUserActivity', data.userActivity);
 
 }
+
 export default {
     namespaced: true,
     state,

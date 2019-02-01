@@ -4,11 +4,10 @@ import Scroller from './components/scroller/scroller'
 import 'vant/lib/index.css';
 import { FetchGet } from './fetch'
 import { FetchPost } from './fetch'
-import { PullRefresh, Lazyload, Swipe, SwipeItem, Icon } from "vant";
-import { Popup } from 'mint-ui';
+import { PullRefresh, Lazyload, Swipe, SwipeItem, Icon, Popup } from "vant";
+
 export default {
     install(Vue) {
-        Vue.component(Popup.name, Popup);
         Vue.component(Tabs.name, Tabs);
         Vue.component(Tab.name, Tab);
         Vue.component(Scroller.name, Scroller);
@@ -22,5 +21,6 @@ export default {
         Vue.use(Swipe)
         Vue.use(SwipeItem)
         Vue.use(Icon)
+        Vue.use(Popup);
     }
 }
