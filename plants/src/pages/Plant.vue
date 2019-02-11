@@ -8,13 +8,13 @@
         </van-swipe-item>
         <div ref="ef" class="custom-indicator" slot="indicator">{{ current }}/3</div>
       </van-swipe>
-      <ul>
-        <li v-for="(item,index) in plant.plantList" :key="index">
-          <span>{{item.dec}}</span>
-          <span>{{item.comment}}</span>
-          <br>
-          <span>{{item.love}}</span>
-          <img v-lazy="item.img" alt>
+      <ul class="mains">
+        <li class="main" v-for="(item,index) in plant.plantList" :key="index">
+          <span class="decPlant-one">{{item.dec}}</span>
+          <img class="imgPlant-one" v-lazy="item.img" alt>
+          <span class="actorbty">{{actor}}</span>
+          <span class="commentPlant-one">{{item.comment}}</span>
+          <span class="lovePlant-one">{{item.love}}</span>
         </li>
       </ul>
     </scroller>
@@ -28,7 +28,8 @@ export default {
   data() {
     return {
       current: 1,
-      color: ["red", "white", "yellow"]
+      color: ["red", "white", "yellow"],
+      actor: "编者最美"
     };
   },
   methods: {
@@ -39,7 +40,7 @@ export default {
       }
       this.current++;
       // console.log(this.$refs.ef);
-      console.log(this.getRandomColor());
+
       // this.$refs.ef.style["color"] = "#" + this.getRandomColor();
       this.$refs.ef.style["color"] = this.color[this.current - 1];
     },
@@ -70,6 +71,7 @@ export default {
 
 <style lang="scss" scoped>
 #plant {
+  flex-direction: column;
   h2 {
     height: 1rem;
     font-size: 18px;
@@ -85,6 +87,42 @@ export default {
     right: 0;
     bottom: 0;
     color: pink;
+  }
+  .mains {
+    width: 7.5rem;
+    position: relative;
+  }
+  .main {
+    height: 2.5rem;
+    border: 1px solid #ccc;
+    margin-top: 1rem;
+    background: lightcyan;
+  }
+  .decPlant-one {
+    font-size: 0.43rem;
+    position: absolute;
+    width: 3.75rem;
+  }
+  .actorbty {
+    position: absolute;
+    line-height: 4.5rem;
+    right: 6.2rem;
+  }
+  .commentPlant-one {
+    position: absolute;
+    line-height: 4.5rem;
+    right: 3.9rem;
+  }
+  .lovePlant-one {
+    position: absolute;
+    line-height: 4.5rem;
+    right: 5.1rem;
+  }
+  .imgPlant-one {
+    width: 2.9rem;
+    height: 2.5rem;
+    position: absolute;
+    right: 0;
   }
 }
 </style>
