@@ -1,14 +1,13 @@
 <template>
   <div id="plant" class="page">
-    <h1>植物多</h1>
-    <scroller :top="44" :bottom="49">
-    
-        <ul>
-          <li v-for="(item,index) in data" :key="index">
-            <img v-lazy="item.img" alt>
-            <span>{{item.name}}</span>
-          </li>
-        </ul> 
+    <h2>植物多</h2>
+    <scroller :to="44" :bottom="49">
+      <ul class="main">
+        <li v-for="(item,index) in data" :key="index">
+          <img v-lazy="item.img" alt>
+          <span>{{item.name}}</span>
+        </li>
+      </ul>
     </scroller>
   </div>
 </template>
@@ -30,8 +29,19 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 #plant {
-  background: green;
+  h2 {
+    height: 1rem;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1rem;
+  }
+  main {
+    width: 100%;
+    overflow: hidden;
+  }
 }
 </style>
+
+

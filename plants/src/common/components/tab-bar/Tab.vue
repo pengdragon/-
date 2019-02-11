@@ -23,7 +23,6 @@ export default {
   height: 30px;
   overflow: hidden;
   margin: 0 auto;
-  padding-top: 2px;
 }
 .tab div img {
   width: 100%;
