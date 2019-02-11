@@ -1,3 +1,5 @@
+
+
 const express = require('express')
 const { Random, mock } = require('mockjs')
 const API = require('./api')
@@ -73,6 +75,10 @@ server.get(API.TEST, (req, res) => {
     });
     res.json(result);
 })
+
+
+
+
 /*匹配路由区域 */
 server.get(API.USER_ACTIVITY, (req, res) => {
     console.log('得到userActivity请求')
@@ -95,13 +101,37 @@ server.get(API.USER_ACTIVITY, (req, res) => {
     res.json(result)
 })
 
-
-
-
-
-
-
-
+server.get(API.USER_PLANT, (req, res) => {
+    let result = mock({
+        status: 0,
+        message: 'ok',
+        data: {
+            'swiper|3': [
+                {
+                    'id|+1': 1341245,
+                    img: "@image('375x300', '@color', '@name')"
+                }
+            ],
+            //创建20个元素，每个元素是一个对象
+            'plantList|20': [
+                {
+                    //每一次的id都自增1
+                    'id|+1': 13412318,
+                    //详情
+                    dec: Random.cparagraph(1),
+                    //随便来个图片地址而且不会重复，大小固定80*120，颜色随机并且不重复，将name的值也加进来
+                    img: "@image('375x150', '@color', '@name')",
+                    //评论随机数
+                    'comment|6000-10000': 0,//0一个数的意思，comment命名
+                    //点赞随机数
+                    'love|10000-15000': 0,
+                    //
+                }
+            ]
+        }
+    });
+    res.json(result);
+})
 
 
 server.listen(9090, 'localhost', (err) => {

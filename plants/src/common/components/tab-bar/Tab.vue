@@ -16,6 +16,7 @@ export default {
   text-align: center;
   flex: 1;
   list-style: none;
+  line-height: 49px;
 }
 .tab div {
   display: block;
