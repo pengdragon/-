@@ -113,7 +113,7 @@ server.get(API.USER_PLANT, (req, res) => {
                 }
             ],
             //创建20个元素，每个元素是一个对象
-            'plantList|20': [
+            'plantList|3': [
                 {
                     //每一次的id都自增1
                     'id|+1': 13412318,
