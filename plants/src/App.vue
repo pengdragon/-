@@ -2,7 +2,7 @@
   <div id="app">
     <Router-view/>
     <tab-bar>
-      <tab-item :info="{title:'植物多',path:'/plant'}"></tab-item>
+      <tab-item :info="{title:'植物圈',path:'/plant'}"></tab-item>
       <tab-item :info="{title:'社区',path:'/community'}"></tab-item>
       <tab-item :info="{title:'商城',path:'/shopping'}"></tab-item>
       <tab-item :info="{title:'我的',path:'/mine'}"></tab-item>
@@ -14,5 +14,6 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>
+
